@@ -16,6 +16,7 @@
 		323AD574295495980060D0C9 /* BucketListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD573295495980060D0C9 /* BucketListUITestsLaunchTests.swift */; };
 		323AD5812954A4FA0060D0C9 /* WriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD5802954A4FA0060D0C9 /* WriteData.swift */; };
 		323AD5852955CC280060D0C9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD5842955CC280060D0C9 /* Location.swift */; };
+		323AD5872955DB220060D0C9 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD5862955DB220060D0C9 /* EditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		323AD573295495980060D0C9 /* BucketListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		323AD5802954A4FA0060D0C9 /* WriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteData.swift; sourceTree = "<group>"; };
 		323AD5842955CC280060D0C9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		323AD5862955DB220060D0C9 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		323AD54A295495970060D0C9 = {
 			isa = PBXGroup;
 			children = (
+				323AD5862955DB220060D0C9 /* EditView.swift */,
 				323AD5802954A4FA0060D0C9 /* WriteData.swift */,
 				323AD555295495970060D0C9 /* BucketList */,
 				323AD566295495980060D0C9 /* BucketListTests */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				323AD559295495970060D0C9 /* ContentView.swift in Sources */,
+				323AD5872955DB220060D0C9 /* EditView.swift in Sources */,
 				323AD5812954A4FA0060D0C9 /* WriteData.swift in Sources */,
 				323AD5852955CC280060D0C9 /* Location.swift in Sources */,
 				323AD557295495970060D0C9 /* BucketListApp.swift in Sources */,
