@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct EditView: View {
+    enum LoadingStates {
+        case loading, loaded, failed
+    }
+    
+    
     @Environment(\.dismiss) var dismiss
     @State private var name: String
     @State private var description: String
+    
+    @State private var currentLoadingState = LoadingStates.loading
+    @State private var pages = [Page]()
     
     var location: Location
     
@@ -25,12 +33,21 @@ struct EditView: View {
                 Section {
                     TextField("Enter description", text: $description)
                 }
+                Section("NearBy") {
+                    ForEach(pages, id: \.pageid) { page in
+                        Text(page.title)
+                            .font(.headline)
+                        + Text(": ")
+                        + Text(page.description)
+                            .italic()
+                    }
+                }
             }
             .navigationTitle("Place details")
             .toolbar{
                 Button("Save") {
                     var newLocation = location
-                    newLocation.id = UUID() 
+                    newLocation.id = UUID()
                     newLocation.name = name
                     newLocation.description = description
                     
@@ -38,10 +55,30 @@ struct EditView: View {
                     onSave(newLocation)
                     dismiss()
                 }
-        }
+            }
+            .task {
+                 await loadDataNearBy()
+            }
         }
     }
     
+    //MARK: Downloads data from Wikipedia 
+    func loadDataNearBy() async {
+        let urlString = "https://en.wikipedia.org/w/api.php?ggscoord=\(location.coordinate.latitude)%7C\(location.coordinate.longitude)&action=query&prop=coordinates%7Cpageimages%7Cpageterms&colimit=50&piprop=thumbnail&pithumbsize=500&pilimit=50&wbptterms=description&generator=geosearch&ggsradius=10000&ggslimit=50&format=json"
+        
+        if let url = URL(string: urlString) {
+            
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let items = try JSONDecoder().decode(Result.self, from: data)
+                pages = items.query.pages.values.sorted()
+                
+                currentLoadingState = .loaded
+            } catch {
+                currentLoadingState = .failed
+            }
+        }
+    }
     
     init(location: Location, onSave: @escaping (Location) -> Void) {
         self.location = location
@@ -50,6 +87,7 @@ struct EditView: View {
         _name = State(initialValue: location.name)
         _description = State(initialValue: location.description)
     }
+    
 }
 
 

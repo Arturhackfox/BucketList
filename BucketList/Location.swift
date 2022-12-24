@@ -15,7 +15,7 @@ struct Location: Identifiable, Codable, Equatable {
     let latitude: Double
     let longitude: Double
     
-    var coordinates: CLLocationCoordinate2D {
+    var coordinate: CLLocationCoordinate2D {
     CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
