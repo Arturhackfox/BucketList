@@ -17,6 +17,8 @@
 		323AD5852955CC280060D0C9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD5842955CC280060D0C9 /* Location.swift */; };
 		323AD5872955DB220060D0C9 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD5862955DB220060D0C9 /* EditView.swift */; };
 		323AD589295749D20060D0C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD588295749D20060D0C9 /* Result.swift */; };
+		323AD58B295867060060D0C9 /* ViewModel-ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD58A295867060060D0C9 /* ViewModel-ContentView.swift */; };
+		323AD58D295869880060D0C9 /* FileManager-URLPATH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323AD58C295869880060D0C9 /* FileManager-URLPATH.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		323AD5842955CC280060D0C9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		323AD5862955DB220060D0C9 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		323AD588295749D20060D0C9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		323AD58A295867060060D0C9 /* ViewModel-ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel-ContentView.swift"; sourceTree = "<group>"; };
+		323AD58C295869880060D0C9 /* FileManager-URLPATH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-URLPATH.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 			children = (
 				323AD556295495970060D0C9 /* BucketListApp.swift */,
 				323AD558295495970060D0C9 /* ContentView.swift */,
+				323AD58A295867060060D0C9 /* ViewModel-ContentView.swift */,
+				323AD58C295869880060D0C9 /* FileManager-URLPATH.swift */,
 				323AD588295749D20060D0C9 /* Result.swift */,
 				323AD5862955DB220060D0C9 /* EditView.swift */,
 				323AD5842955CC280060D0C9 /* Location.swift */,
@@ -268,9 +274,11 @@
 			files = (
 				323AD559295495970060D0C9 /* ContentView.swift in Sources */,
 				323AD589295749D20060D0C9 /* Result.swift in Sources */,
+				323AD58D295869880060D0C9 /* FileManager-URLPATH.swift in Sources */,
 				323AD5872955DB220060D0C9 /* EditView.swift in Sources */,
 				323AD5852955CC280060D0C9 /* Location.swift in Sources */,
 				323AD557295495970060D0C9 /* BucketListApp.swift in Sources */,
+				323AD58B295867060060D0C9 /* ViewModel-ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +440,7 @@
 				DEVELOPMENT_TEAM = 7S5KXF68WA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need authentication to display your places.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -462,7 +470,7 @@
 				DEVELOPMENT_TEAM = 7S5KXF68WA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need authentication to display your places.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
