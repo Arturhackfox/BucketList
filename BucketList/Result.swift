@@ -28,4 +28,6 @@ struct Page: Codable, Comparable {
     static func <(lhs: Page, rhs: Page) -> Bool {
         lhs.title < rhs.title
     }
+    
+    static let example = Page(pageid: 1, title: "test", terms: ["test": ["test"]])
 }

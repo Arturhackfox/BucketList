@@ -18,7 +18,11 @@ extension ContentView {
         
         @Published var isUnlocked = false
         
-        let savePath = FileManager.directoryPath.appendingPathExtension("SavePath")
+        let savePath = FileManager.directoryPath.appendingPathComponent("SavedPlaces")
+        
+        @Published var isAlertShowing = false
+        @Published var alertMessage = ""
+        @Published var alertTitle = ""
         
         //MARK: ON the launch reads data from documents directory 
         init() {
@@ -42,16 +46,27 @@ extension ContentView {
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in  // <- Thats the results of evaluate
                     
                     if success {
-                        //MARK: Evaluate results success or failure given not on the main actor
+                        //MARK: Evaluate results success or failure won't run on the main actor, they will run on the Background task, to fix -> @MainActor in 
                         Task{ @MainActor in
-                                self.isUnlocked = true    // <- Whole closure runs on the MainActor
+                            self.isUnlocked = true    // <- Whole closure runs on the MainActor
                         }
                     } else {
                         // failed to authenticate
+                        Task { @MainActor in
+                            self.isAlertShowing = true
+                            self.alertTitle = "Failed to authenticate"
+                            self.alertMessage = "try again"
+                        }
                     }
                 }
             } else {
                 // user don't have biometrics on his phone
+                Task { @MainActor in {
+                    self.isAlertShowing = true
+                    self.alertTitle = "Seems like you don't have biometric authentication"
+                    self.alertMessage = "try another unlock option"
+                }
+                }
             }
         }
         
@@ -59,10 +74,12 @@ extension ContentView {
         func save() {
             do {
                 let data = try JSONEncoder().encode(locations)
-                try data.write(to: savePath, options: [.atomicWrite, .completeFileProtection])
+                try data.write(to: savePath, options: [.atomic, .completeFileProtection])
             } catch {
                 print("Failed to save")
             }
+            
+            
         }
         
         func addLocation() {

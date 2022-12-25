@@ -15,6 +15,7 @@ struct Location: Identifiable, Codable, Equatable {
     let latitude: Double
     let longitude: Double
     
+    //MARK: The CL in CLLocationCoordinate2D stands for Core Location.
     var coordinate: CLLocationCoordinate2D {
     CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
